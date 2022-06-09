@@ -18,7 +18,7 @@ func scale(v *vertex, f float64){
 	v.y = v.y * f
 }
 
-func main(){
+func main() {
 	v := vertex{3,4}
 	scale(&v,10)
 	fmt.Println(Abs(v))
