@@ -11,27 +11,32 @@ type HashMap struct {
 	next *HashMap
 }
 
+// 定义一个哈希表
 var table [16](*HashMap)
 
+// 初始化一个哈希表
 func initTable() {
 	for i := range table {
 		table[i] = &HashMap{"","",i,nil}
 	}
 }
 
-func getInstance()[16] (*HashMap){
+// 获得一个初始化好的哈希table
+func getInstance() [16] (*HashMap){
 	if(table[0] == nil){
 		initTable()
 	}
 	return table
 }
 
+// 这里是获得一个哈希数
 func getHashCode(k string) int{
 	if len(k) == 0{
 		return 0
 	}
 	var hashCode int = 0
 	var lastIndex int = len(k) - 1
+
 	for i := range k {
 		if i == lastIndex {
 			hashCode += int(k[i])
@@ -42,20 +47,25 @@ func getHashCode(k string) int{
 	return hashCode
 }
 
+// 获得索引值
 func indexTable(hashCode int) int{
 	return hashCode % 16
 }
 
+// 获得哈希节点
 func indexNode(hashCode int) int{
 	return hashCode >> 4
 }
 
-
+// 向哈希表中添加数据
 func put(k string,v string) string{
+
 	var hashCode = getHashCode(k)
 	var thisNode = HashMap{k,v,hashCode,nil}
+
 	var tableIndex = indexTable(hashCode)
 	var nodeIndex = indexNode(hashCode)
+
 	var headPtr [16](*HashMap) = getInstance()
 	var headNode = headPtr[tableIndex]
 
@@ -85,6 +95,7 @@ func put(k string,v string) string{
 	return ""
 }
 
+// 获得哈希表中的数据
 func get(k string) string {
 	var hashCode = getHashCode(k)
 	var tableIndex = indexTable(hashCode)
@@ -92,7 +103,7 @@ func get(k string) string {
 	var headPtr [16](*HashMap) = getInstance()
 	var node *HashMap = headPtr[tableIndex]
 	
-	if(*node).next != nil {
+	if(*node).key == k {
 		return (*node).value 
 	}
 	for (*node).next != nil {
