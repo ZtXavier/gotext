@@ -18,6 +18,7 @@ func main() {
 
 	go Chann(ch, stp)
 
+	// select 是作为随机触发其中收到chan并满足条件的事件
 	for {
 		select {
 		case c = <- ch:
