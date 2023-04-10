@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
-	"gotest/trans"
+	"trans_init"
 )
 
-var twoPi = 2 * trans.Pi
+var twoPi = 2 * trans_init.Pi
 func main() {
 	fmt.Printf("2* Pi = %g\n",twoPi)
 }

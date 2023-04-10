@@ -1,6 +1,6 @@
-package trans
+package trans_init
 import (
-	"fmt"
+
 	"math"
 )
 
