@@ -1,12 +1,14 @@
-package main
+package main 
+import (
+		"fmt"
+		"strings"
+)
 
-import "fmt"
+// 一般strings是用来处理字符串
 
-type name struct {
-	shen []string
-	zhixiashi	[]string
-	zizhiqu []string
-}
-func chengshi ()  {
+// strings.HasPrefix(str,dis) 判断字符串str的开头是否是以dis开始的
 
+func main() {
+	var str string = "this is an example of a string"
+	fmt.Printf("T/F ? the string begin with %t", strings.HasPrefix(str, "th"))
 }
