@@ -27,5 +27,5 @@ func main() {
 		s: []interface{}{"1", "2"},
 	}
 	v := <- th.Iter()
-	fmt.Sprintf("%s%v","ch",v)
+	fmt.Println("ch", v)
 }
